@@ -1,0 +1,97 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    flex-wrap: nowrap;
+    border-radius: 15px;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: 100;
+    font-style: oblique;
+    line-height: 2;
+    margin: 1;
+    padding: 2;
+    background-color: bisque;
+    background-image: url(bg4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: bisque;
+
+}
+
+
+
+table {
+    max-width: 1000px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgb(23, 215, 151);
+    padding: 15px;
+    box-shadow: whitesmoke;
+    border-radius: 30px;
+    border-width: 10px;
+    border-color: rgb(42, 176, 176);
+    border-style: groove;
+    background-color: brown;
+    text-align: start;
+    text-decoration: antiquewhite;
+    text-shadow: 5em;
+    text-emphasis: 3;
+    text-emphasis-color: green;
+    text-emphasis-style: dotted;
+
+}
+
+input{
+    background-color: rgb(249, 224, 194);
+    text-align: justify;
+    border-color: rgb(9, 9, 9);
+    text-indent: 0.5px;
+    border-radius: 30px;
+}
+
+input:focus{
+    background-color: rgb(235, 209, 176);
+    text-align: justify;
+    border-color: rgb(39, 202, 39);
+    text-indent: 0.5px;
+    border-radius: 30px;
+}
+
+#fieldofinterest {
+    color: rgb(66, 66, 53);
+    background-color: bisque;
+    box-shadow: whitesmoke;
+}
+
+textarea {
+    color: rgb(104, 104, 71);
+    background-color: bisque;
+    border-radius: 15px;
+    font-size: large;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    vertical-align: middle;
+
+
+}
+
+th,
+td,
+tr,
+thead {
+    color: rgb(71, 104, 77);
+    border-radius: 10px;
+    border-color: aqua;
+
+}
+
+#name {
+    background-color: bisque;
+    background-size: (10, 20, 30);
+
+}
