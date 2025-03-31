@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Expectancy</title>
+    <link href="https://cdn.tailwindcss.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gender-section {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .gender-section a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .male {
+            background-color: #e0f7fa;
+            /* Light blue */
+        }
+
+        .female {
+            background-color: #fce4ec;
+            /* Light pink */
+        }
+
+        .other-genders {
+            background-color: #e1bee7;
+            /* Light purple */
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .gender-section:hover {
+            background-color: #b2ebf2;
+            /* Darker light blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-5xl font-bold mb-4 text-white">Path to Purpose: Life Expectancy Insights</h1>
+    <div id="quote" class="text-lg italic mb-12"></div>
+    <script>
+        const headings = [
+            "Unlock Your Potential: Discover Your Life's Journey",
+            "Empower Your Future: Calculate Your Life Expectancy",
+            "Your Life, Your Story: Explore Your Journey",
+            "Unleash Your Dreams: Get Inspired by Your Life's Potential",
+            "Life is a Journey, Not a Destination: Discover Yours",
+            "Your Time, Your Life: Make the Most of It",
+            "Believe in Yourself: You Are Capable of Greatness",
+            "The Future is Yours: Shape It with Your Life's Journey",
+            "Every Moment Counts: Make the Most of Your Life",
+            "Your Life, Your Choice: Choose to Live an Extraordinary Life",
+            "The Power of Now: Focus on Your Life's Journey",
+            "Dream Big, Live Bigger: Your Life's Potential Awaits",
+            "Life is a Gift: Unwrap Your Potential",
+            "Your Journey, Your Way: Create the Life You Want",
+            "The Sky's the Limit: Reach for Your Dreams",
+            "Every Step Counts: Take the First Step Towards Your Dreams",
+            "Your Life's Purpose: Discover and Fulfill It",
+            "The Journey of a Lifetime: Yours to Create",
+            "Make Every Moment Count: Live an Extraordinary Life"
+        ];
+
+        // Function to display a random heading
+        function displayRandomHeading() {
+            const randomIndex = Math.floor(Math.random() * headings.length);
+            document.getElementById('heading').innerText = headings[randomIndex];
+        }
+
+        // Load a random heading on page load
+        window.onload = displayRandomHeading;
+    </script>
+
+
+    <div class="gender-section male">
+        <a href="male.html">
+            <h2>Male Journey</h2>
+            <img src="path/to/male-image.jpg" alt="Motivational image for men" />
+            <p>Explore motivational quotes, success stories, and resources tailored for men.</p>
+        </a>
+    </div>
+
+    <div class="gender-section female">
+        <a href="female.html">
+            <h2>Female Journey</h2>
+            <img src="path/to/female-image.jpg" alt="Empowering image for women" />
+            <p>Discover empowering content, inspirational figures, and resources aimed at women.</p>
+        </a>
+    </div>
+
+    <div class="gender-section other-genders">
+        <a href="others.html">
+            <h2>For Non-Binary and Gender-Diverse Individuals</h2>
+            <img src="path/to/other-genders-image.jpg" alt="Inclusive image for non-binary individuals" />
+            <p>Access inclusive resources and motivational content for all gender identities.</p>
+        </a>
+    </div>
+    <div id="quote" class="text-lg italic mb-8"></div>
+    <script>
+        const quotes = [
+            "The best time to plant a tree was 20 years ago. The second best time is now.",
+            "Your life is your story, and the adventure ahead of you is the journey to fulfill your own purpose and potential.",
+            "Believe you can and you're halfway there.",
+            "Life is 10% what happens to us and 90% how we react to it.",
+            "The only way to do great work is to love what you do.",
+            "You are never too old to set another goal or to dream a new dream.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+            "Act as if what you do makes a difference. It does.",
+            "The only limit to our realization of tomorrow will be our doubts of today.",
+            "Keep your face always toward the sunshine—and shadows will fall behind you.",
+            "You are braver than you believe, stronger than you seem, and smarter than you think.",
+            "The journey of a thousand miles begins with one step."
+        ];
+
+        // Function to display a random quote
+        function displayRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerText = quotes[randomIndex];
+        }
+
+        // Load a random quote on page load
+        window.onload = displayRandomQuote;
+    </script>
+</body>
+
+</html>

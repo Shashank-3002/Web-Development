@@ -9,12 +9,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
-            background: linear-gradient(135deg, #2c3e50, #4ca1af);
-            color: white;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
             animation: fadeIn 1s ease-in;
         }
 
@@ -25,65 +24,105 @@
 
         header {
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
+            margin: 0;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         main {
             padding: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            animation: bounceIn 0.5s ease-in-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .section img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
         }
 
         button {
-            background: #ff9800;
+            background: #ff5722;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
             margin: 10px;
-            font-size: 1em;
+            font-size: 1.2em;
             color: white;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 50px;
             transition: transform 0.2s ease-in-out, background 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
-            transform: scale(1.1);
-            background: #e68900;
+            transform: scale(1.05);
+            background: #e64a19;
         }
 
         #map {
-            width: 80%;
+            width: 90%;
             height: 400px;
             margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        #places-list {
-            list-style: none;
-            padding: 0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        #places-list li {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
         }
 
-        #places-list li:hover {
-            transform: scale(1.05);
+        #map:hover {
+            transform: scale(1.02);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
 
         @media (max-width: 768px) {
             button {
                 width: 100%;
+                font-size: 1em;
             }
             #map {
                 width: 95%;
@@ -95,12 +134,33 @@
     <header>
         <h1>Find Nearest Auto Services</h1>
     </header>
-    <main>
-        <button onclick="findNearbyPlaces('gas_station')">Find Gas Stations</button>
-        <button onclick="findNearbyPlaces('ev_charging_station')">Find EV Charging Stations</button>
-        <button onclick="findNearbyPlaces('car_repair')">Find Auto Repair Shops</button>
+    <main >
+        <div class="section" id="gas-stations">
+            <h2>Gas Stations</h2>
+            <img src="https://example.com/gas-station.jpg" alt="Gas Station">
+            <p>Find the nearest gas stations to refuel your vehicle quickly and conveniently.</p>
+            <button onclick="findNearbyPlaces('gas_station')">Find Gas Stations</button>
+        </div>
+
+        <div class="section" id="ev-charging">
+            <h2>EV Charging Stations</h2>
+            <img src="https://example.com/ev-charging.jpg" alt="EV Charging Station">
+            <p>Locate EV charging stations to keep your electric vehicle powered up and ready to go.</p>
+            <button onclick="findNearbyPlaces('ev_charging_station')">Find EV Charging Stations</button>
+        </div>
+
+        <div class="section" id="auto-repair">
+            <h2>Auto Repair Shops</h2>
+            <img src="https://example.com/auto-repair.jpg" alt="Auto Repair Shop">
+            <p>Get your vehicle serviced at the nearest auto repair shops for reliable maintenance.</p>
+            <button onclick="findNearbyPlaces('car_repair')">Find Auto Repair Shops</button>
+        </div>
+
         <div id="map"></div>
-        <ul id="places-list"></ul>
     </main>
+    <footer>
+        <p>&copy; 2023 Find Nearest Auto Services</p>
+        <p>Contact us: info@example.com</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inclusive Life Motivation Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #48bb78 0%, #38b2ac 100%);
+            color: #2c3e50;
+        }
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .input-field:focus {
+            border-color: #48bb78;
+            box-shadow: 0 0 10px rgba(72,187,120,0.3);
+        }
+        .calculator-btn {
+            transition: all 0.3s ease;
+        }
+        .calculator-btn:hover {
+            transform: scale(1.05);
+            background-color: #38b2ac;
+        }
+        .calculator-btn:active {
+            transform: scale(0.95);
+        }
+        .time-unit {
+            transition: all 0.3s ease;
+        }
+        .time-unit:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-green-600 text-white p-4">
+    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 w-full max-w-md shadow-2xl">
+        <h1 class="text-3xl font-bold text-center mb-6 text-green-200">Inclusive Life Journey</h1>
+        
+        <div class="mb-4">
+            <label class="block text-green-100 mb-2">Date of Birth</label>
+            <input type="date" id="birthDate" class="w-full p-3 bg-white/20 text-white input-field rounded-lg">
+        </div>
+        
+        <button onclick="calculateLifeRemaining()" class="w-full bg-green-600 text-white p-3 rounded-lg calculator-btn">
+            Calculate Your Journey
+        </button>
+        
+        <div id="result" class="mt-6 text-center hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-green-200" id="timeLeftMessage"></h2>
+            
+            <div id="timeBreakdown" class="grid grid-cols-2 gap-4 mt-6">
+                <div class="time-unit bg-green-800/50 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-300" id="yearsLeft">0</h3>
+                    <p class="text-green-200">Years</p>
+                </div>
+                <div class="time-unit bg-green-800/50 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-300" id="monthsLeft">0</h3>
+                    <p class="text-green-200">Months</p>
+                </div>
+                <div class="time-unit bg-green-800/50 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-300" id="weeksLeft">0</h3>
+                    <p class="text-green-200">Weeks</p>
+                </div>
+                <div class="time-unit bg-green-800/50 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-300" id="daysLeft">0</h3>
+                    <p class="text-green-200">Days</p>
+                </div>
+            </div>
+
+            <div id="motivationalContent" class="mt-6">
+                <p id="quote" class="text-lg italic text-green-100"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const LIFE_EXPECTANCY = 73.5; // Average life expectancy for other genders
+
+        const MOTIVATIONAL_QUOTES = [
+            "Your journey is unique, and so is your potential.",
+            "Embrace your authenticity, it is your greatest strength.",
+            "Every individual has a story worth telling.",
+            "Diversity is not about how different we are, but about how beautifully we can come together.",
+            "Your identity is a canvas, and you are the artist."
+        ];
+
+        function calculateLifeRemaining() {
+            const birthDateInput = document.getElementById('birthDate');
+            const resultDiv = document.getElementById('result');
+            const timeLeftMessage = document.getElementById('timeLeftMessage');
+            const quoteElement = document.getElementById('quote');
+
+            const birthDate = new Date(birthDateInput.value);
+
+            if (isNaN(birthDate)) {
+                alert('Please enter your birth date');
+                return;
+            }
+
+            const today = new Date();
+            const age = today.getFullYear() - birthDate.getFullYear();
+            
+            const yearsLeft = Math.max(0, LIFE_EXPECTANCY - age);
+            const monthsLeft = Math.floor(yearsLeft * 12);
+            const weeksLeft = Math.floor(yearsLeft * 52);
+            const daysLeft = Math.floor(yearsLeft * 365);
+
+            resultDiv.classList.remove('hidden');
+
+            document.getElementById('yearsLeft').textContent = yearsLeft.toFixed(1);
+            document.getElementById('monthsLeft').textContent = monthsLeft;
+            document.getElementById('weeksLeft').textContent = weeksLeft;
+            document.getElementById('daysLeft').textContent = daysLeft;
+
+            timeLeftMessage.innerHTML = yearsLeft > 0 
+                ? `You have <span class="text-green-300">${yearsLeft.toFixed(1)} years</span> to create your story!`
+                : 'Every moment is an opportunity for growth!';
+
+            const randomQuote = MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)];
+            quoteElement.textContent = `"${randomQuote}"`;
+
+            gsap.fromTo("#timeBreakdown", 
+                {opacity: 0, y: 50}, 
+                {opacity: 1, y: 0, duration: 1, stagger: 0.2}
+            );
+        }
+    </script>
+</body>
+</html> 
